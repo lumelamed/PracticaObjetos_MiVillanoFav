@@ -63,6 +63,6 @@ object luna {
 	}
 	
 	method realizarRobo(minionsAsignados){
-		minionsAsignados.forEach { minion => minion.agregarArma(new RayoEncogedor(potencia = 10)) }
+		minionsAsignados.forEach { minion => minion.agregarArma(new RayoCongelante(potencia = 10)) }
 	}
 }

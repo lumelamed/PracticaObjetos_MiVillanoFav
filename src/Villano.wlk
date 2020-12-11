@@ -24,9 +24,18 @@ class Villano {
 			throw new Exception(message = "Este villano no posee minions aptos para realizar la maldad")
 		}
 		unaMaldad.realizarse(minionsAsignados)
+		minionsAsignados.forEach { minion => minion.hacerUnaMaldad() }
 	}
 	
 	//ejemplo: realizarMaldad(new Robo(objetivo = luna))
+	
+	method minionMasUtil(){
+		return minions.max { minion => minion.cantidadDeMaldadesHechas() }
+	}
+	
+	method minionMasInutil(){
+		return minions.min { minion => minion.cantidadDeMaldadesHechas() }
+	}
 }
 
 //Maldades

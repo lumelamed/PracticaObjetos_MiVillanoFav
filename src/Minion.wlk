@@ -4,6 +4,7 @@ class Minion {
 	var tipoDeMinion = minionAmarillo
 	var property cantidadDeBananas = 10
 	var property armas = #{}
+	var property cantidadDeMaldadesHechas = 0
 	
 	method esPeligroso(){
 		return tipoDeMinion.esPeligroso(armas.size())
@@ -51,6 +52,10 @@ class Minion {
 	
 	method tieneAlgunRayoEncogedor(){
 		return armas.any { arma => arma.esUnRayoEncogedor() }
+	}
+	
+	method hacerUnaMaldad() {
+		cantidadDeMaldadesHechas ++
 	}
 }
 
