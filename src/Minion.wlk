@@ -48,6 +48,10 @@ class Minion {
 	method tieneAlgunRayoCongelante(){
 		return armas.any { arma => arma.esUnRayoCongelante() }
 	}
+	
+	method tieneAlgunRayoEncogedor(){
+		return armas.any { arma => arma.esUnRayoEncogedor() }
+	}
 }
 
 object minionAmarillo {

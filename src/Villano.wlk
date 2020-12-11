@@ -25,12 +25,14 @@ class Villano {
 		}
 		unaMaldad.realizarse(minionsAsignados)
 	}
+	
+	//ejemplo: realizarMaldad(new Robo(objetivo = luna))
 }
 
 //Maldades
 
 class Congelar {
-	var nivelDeConcentracionRequerido = 500
+	var nivelDeConcentracionRequerido = 500 //puede variar en cada nuevo objeto de la clase Congelar
 	
 	method minionsAptos(listaDeMinions){
 		return listaDeMinions.filter { minion => minion.tieneAlgunRayoCongelante() && minion.nivelDeConcentracion() >=  nivelDeConcentracionRequerido }
@@ -43,9 +45,14 @@ class Congelar {
 }
 
 class Robo {
-	var nivelDeConcentracionRequerido = 500
-	
+	const property objetivo // cada objeto de la clase robo tendra un objetivo
+		
 	method minionsAptos(listaDeMinions){
-		return listaDeMinions.filter { minion => minion.tieneAlgunRayoCongelante() && minion.nivelDeConcentracion() >=  nivelDeConcentracionRequerido }
+		return listaDeMinions.filter { minion => minion.esPeligroso() && minion.nivelDeConcentracion() >=  objetivo.nivelDeConcentracionRequerido() && objetivo.cumpleSusRequisitos(minion)}
+	}
+	
+	method realizarse(minionsAsignados){
+		objetivo.realizarRobo(minionsAsignados)
+		ciudad.eliminarObjetoRobado(objetivo)
 	}
 }
