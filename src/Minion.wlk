@@ -40,6 +40,14 @@ class Minion {
 	method alimentarse(cantBananas){
 		cantidadDeBananas += cantBananas
 	}
+	
+	method tieneArma(unArma){
+		return armas.contains(unArma)
+	}
+	
+	method tieneAlgunRayoCongelante(){
+		return armas.any { arma => arma.esUnRayoCongelante() }
+	}
 }
 
 object minionAmarillo {
