@@ -6,7 +6,7 @@ class Minion {
 	var property armas = #{}
 	
 	method esPeligroso(){
-		return tipoDeMinion.esPeligroso(armas)
+		return tipoDeMinion.esPeligroso(armas.size())
 	}
 	
 	method ingerirSueroMutante(){
@@ -22,7 +22,7 @@ class Minion {
 	}
 	
 	method restarBananas(cantidad) {
-		cantidadDeBananas = cantidadDeBananas - cantidad
+		cantidadDeBananas -= cantidad
 	}
 	
 	method armaMasPotente(){
@@ -32,12 +32,20 @@ class Minion {
 	method nivelDeConcentracion(){
 		return tipoDeMinion.nivelDeConcentracion(self.armaMasPotente(), cantidadDeBananas)
 	}
+	
+	method agregarArma(nuevaArma){
+		armas.add(nuevaArma)
+	}
+	
+	method alimentarse(cantBananas){
+		cantidadDeBananas += cantBananas
+	}
 }
 
 object minionAmarillo {
 	
-	method esPeligroso(armas){
-		return armas.size() > 2
+	method esPeligroso(cantArmas){
+		return cantArmas > 2
 	}
 	
 	method ingerirSueroMutante(minion){
@@ -53,7 +61,7 @@ object minionAmarillo {
 
 object minionVioleta {
 	
-	method esPeligroso(armas){
+	method esPeligroso(cantArmas){
 		return true
 	}
 	
