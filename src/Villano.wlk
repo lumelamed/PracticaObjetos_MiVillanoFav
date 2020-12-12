@@ -4,7 +4,6 @@ import Ciudad.*
 
 class Villano {
 	var property minions = #{}
-	const ciudadEnQueVive // supongo constante
 	
 	method nuevoMinion(){
 		minions.add(new Minion(tipoDeMinion = minionAmarillo, cantidadDeBananas = 5, armas = new RayoCongelante(potencia = 10)))
